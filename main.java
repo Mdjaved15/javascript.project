@@ -103,7 +103,7 @@ class CarRentalSystem {
 
         for (User user : users) {
             if (user.getUsername().equals(username)) {
-                System.out.println("❌ Username already exists.");
+                System.out.println(" Username already exists.");
                 return;
             }
         }
@@ -113,7 +113,7 @@ class CarRentalSystem {
 
         String userId = "U" + (users.size() + 1);
         users.add(new User(userId, name, username, password));
-        System.out.println("✅ Registration successful! Please log in.");
+        System.out.println(" Registration successful! Please log in.");
     }
 
     public boolean loginUser() {
@@ -125,12 +125,12 @@ class CarRentalSystem {
         for (User user : users) {
             if (user.getUsername().equals(uname) && user.getPassword().equals(pass)) {
                 loggedInUser = user;
-                System.out.println("✅ Login successful. Welcome " + user.getName() + "!");
+                System.out.println(" Login successful. Welcome " + user.getName() + "!");
                 return true;
             }
         }
 
-        System.out.println("❌ Invalid credentials.");
+        System.out.println(" Invalid credentials.");
         return false;
     }
 
@@ -147,12 +147,12 @@ class CarRentalSystem {
             if (car.getCarId().equals(carId) && car.isAvailable()) {
                 car.rent();
                 rentals.add(new Rental(car, loggedInUser, days));
-                System.out.println("✅ Car rented successfully.");
+                System.out.println(" Car rented successfully.");
                 return;
             }
         }
 
-        System.out.println("❌ Car not found or not available.");
+        System.out.println(" Car not found or not available.");
     }
 
     public void returnCar() {
@@ -163,12 +163,12 @@ class CarRentalSystem {
             if (rental.getUser().equals(loggedInUser) && rental.getCar().getCarId().equals(carId)) {
                 rental.getCar().returnCar();
                 rentals.remove(rental);
-                System.out.println("✅ Car returned successfully.");
+                System.out.println(" Car returned successfully.");
                 return;
             }
         }
 
-        System.out.println("❌ No matching rental found.");
+        System.out.println(" No matching rental found.");
     }
 
     public void showRentals() {
@@ -188,7 +188,7 @@ class CarRentalSystem {
         if (uname.equals("admin") && pass.equals("admin123")) {
             adminMenu();
         } else {
-            System.out.println("❌ Invalid admin credentials.");
+            System.out.println(" Invalid admin credentials.");
         }
     }
 
@@ -213,7 +213,7 @@ class CarRentalSystem {
                     System.out.print("Price/day: ");
                     double price = Double.parseDouble(scanner.nextLine());
                     addCar(new Car(id, brand, model, price));
-                    System.out.println("✅ Car added.");
+                    System.out.println(" Car added.");
                     break;
                 case 2:
                     showAllCars();
@@ -224,7 +224,7 @@ class CarRentalSystem {
                 case 4:
                     return;
                 default:
-                    System.out.println("❌ Invalid choice.");
+                    System.out.println("Invalid choice.");
             }
         }
     }
@@ -254,7 +254,7 @@ class CarRentalSystem {
                     loggedInUser = null;
                     return;
                 default:
-                    System.out.println("❌ Invalid choice.");
+                    System.out.println(" Invalid choice.");
             }
         }
     }
@@ -282,10 +282,10 @@ class CarRentalSystem {
                     }
                     break;
                 case 4:
-                    System.out.println("👋 Goodbye!");
+                    System.out.println(" Goodbye!");
                     return;
                 default:
-                    System.out.println("❌ Invalid choice.");
+                    System.out.println(" Invalid choice.");
             }
         }
     }
